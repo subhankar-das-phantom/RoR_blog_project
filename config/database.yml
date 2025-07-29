@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: 127.0.0.1      # leave as-is
+  username: postgres     # or another role you created
+  password: "#subhankar123"   # quotes are important!
+  pool: 5
+
+development:
+  <<: *default
+  database: blog_project_development
+
+test:
+  <<: *default
+  database: blog_project_test
+
+production:
+  <<: *default
+  database: blog_project_production

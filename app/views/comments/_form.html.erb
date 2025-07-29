@@ -1,0 +1,8 @@
+<%= form_with(model: [post, comment], class: "mt-6") do |form| %>
+  <div class="field">
+    <%= form.text_area :body, class: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "Add a comment..." %>
+  </div>
+  <div class="actions mt-4">
+    <%= form.submit "Post Comment", class: "bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 font-medium cursor-pointer" %>
+  </div>
+<% end %>

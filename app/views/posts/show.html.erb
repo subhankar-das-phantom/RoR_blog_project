@@ -1,0 +1,49 @@
+<div class="max-w-3xl mx-auto">
+  <!-- Post Header -->
+  <div class="mb-8">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4"><%= @post.title %></h1>
+    <div class="flex items-center text-gray-500">
+      <% if @post.user %>
+        <span class="font-medium text-gray-700"><%= @post.user.full_name %></span>
+        <span class="mx-2">&middot;</span>
+      <% end %>
+      <span><%= @post.created_at.strftime("%B %d, %Y") %></span>
+    </div>
+  </div>
+
+  <!-- Edit/Delete links for the post owner -->
+  <% if user_signed_in? && @post.user == current_user %>
+    <div class="flex items-center space-x-4 mb-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+      <p class="text-sm text-blue-700 font-medium">You are the author of this post.</p>
+      <%= link_to 'Edit Post', edit_post_path(@post), class: "text-blue-600 hover:text-blue-800 font-semibold" %>
+      <%= link_to 'Delete Post', @post, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "text-red-600 hover:text-red-800 font-semibold" %>
+    </div>
+  <% end %>
+
+  <!-- Post Content -->
+  <div class="prose prose-xl max-w-none text-gray-800 leading-relaxed">
+    <%# This is the fix: changing .body to .content %>
+    <%= simple_format(@post.content) %>
+  </div>
+
+  <hr class="my-12">
+
+  <!-- Comments Section -->
+  <div id="comments">
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">Comments</h2>
+    
+    <!-- New Comment Form -->
+    <% if user_signed_in? %>
+      <%= render 'comments/form', post: @post, comment: @comment %>
+    <% else %>
+      <p class="text-gray-600">
+        <%= link_to 'Log in', new_user_session_path, class: 'text-blue-600 font-semibold' %> to leave a comment.
+      </p>
+    <% end %>
+
+    <!-- List of Existing Comments -->
+    <div class="mt-8 space-y-6" id="comments_list">
+      <%= render @post.comments %>
+    </div>
+  </div>
+</div>

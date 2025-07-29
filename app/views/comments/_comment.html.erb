@@ -1,0 +1,19 @@
+<div id="<%= dom_id comment %>" class="flex space-x-4">
+  <div class="flex-shrink-0">
+    <div class="w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center text-white text-lg font-semibold">
+      <%= comment.user.first_name.first.upcase %>
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="bg-gray-100 rounded-lg p-4">
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-gray-800"><%= comment.user.full_name %></p>
+        <% if user_signed_in? && comment.user == current_user %>
+          <%= link_to 'Delete', [comment.post, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "text-xs text-red-500 hover:text-red-700" %>
+        <% end %>
+      </div>
+      <p class="text-gray-600 mt-1"><%= simple_format(comment.body) %></p>
+    </div>
+    <p class="text-xs text-gray-400 mt-1"><%= time_ago_in_words(comment.created_at) %> ago</p>
+  </div>
+</div>

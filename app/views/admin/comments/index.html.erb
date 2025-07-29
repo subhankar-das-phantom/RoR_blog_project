@@ -1,0 +1,36 @@
+<div class="flex justify-between items-center mb-6">
+  <h1 class="text-2xl font-bold text-gray-900">Manage Comments</h1>
+</div>
+
+<div class="bg-white shadow overflow-hidden sm:rounded-md">
+  <ul class="divide-y divide-gray-200">
+    <% if @comments.any? %>
+      <% @comments.each do |comment| %>
+        <li class="px-4 py-4 sm:px-6">
+          <div class="flex items-center justify-between">
+            <div class="flex-1">
+              <p class="text-sm text-gray-800"><%= comment.content %></p>
+              <div class="mt-2 flex items-center text-sm text-gray-500">
+                <span>
+                  Comment by
+                  <strong><%= comment.user.email %></strong>
+                  on post
+                  <%= link_to comment.post.title, admin_post_path(comment.post), class: "font-medium text-indigo-600 hover:text-indigo-500" %>
+                </span>
+                <span class="mx-2">·</span>
+                <span><%= time_ago_in_words(comment.created_at) %> ago</span>
+              </div>
+            </div>
+            <div class="ml-4">
+              <%= link_to "Delete", admin_comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-red-600 hover:text-red-800 text-sm font-medium" %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% else %>
+      <li class="px-4 py-8 text-center">
+        <p class="text-gray-500">No comments found.</p>
+      </li>
+    <% end %>
+  </ul>
+</div>
