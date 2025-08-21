@@ -26,6 +26,7 @@ class Post < ApplicationRecord
                   }
 
   scope :published_posts, -> { where(status: :published) }
+  scope :draft_posts, -> { where(status: :draft) }
   scope :by_date_range, ->(start_date, end_date) { where(created_at: start_date..end_date) }
   scope :recent, -> { order(created_at: :desc) }
 
