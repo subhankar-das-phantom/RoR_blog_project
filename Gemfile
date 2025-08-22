@@ -6,6 +6,7 @@ ruby "~> 3.2.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
+gem 'concurrent-ruby', '< 1.3.5'
 
 # The original asset pipeline for Rails
 gem "sprockets-rails", ">= 3.4.0"
@@ -45,9 +46,6 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -81,6 +79,9 @@ end
 group :development do
   # Use console on exceptions pages
   gem "web-console"
+
+  # Reduces boot times through caching; required in config/boot.rb
+  gem "bootsnap", require: false
 
   # Add speed badges
   # gem "rack-mini-profiler"

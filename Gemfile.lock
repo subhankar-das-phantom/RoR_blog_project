@@ -72,7 +72,7 @@ GEM
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     builder (3.3.0)
-    concurrent-ruby (1.3.5)
+    concurrent-ruby (1.3.4)
     connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
@@ -88,7 +88,7 @@ GEM
     diff-lcs (1.6.2)
     erb (5.0.2)
     erubi (1.13.1)
-    factory_bot (6.5.4)
+    factory_bot (6.5.5)
       activesupport (>= 6.1.0)
     factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
@@ -99,7 +99,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.2.0)
+    importmap-rails (2.2.2)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -108,9 +108,9 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.13.0)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
+    jbuilder (2.14.1)
+      actionview (>= 7.0.0)
+      activesupport (>= 7.0.0)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -151,8 +151,11 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.9-x64-mingw-ucrt)
       racc (~> 1.4)
+    nokogiri (1.18.9-x86_64-linux-gnu)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.6.0-x64-mingw-ucrt)
+    pg (1.6.1-x64-mingw-ucrt)
+    pg (1.6.1-x86_64-linux)
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
@@ -201,7 +204,7 @@ GEM
       erb
       psych (>= 4.0.0)
     redis (4.8.1)
-    redis-client (0.25.1)
+    redis-client (0.25.2)
       connection_pool
     reline (0.6.2)
       io-console (~> 0.5)
@@ -224,7 +227,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-    rspec-support (3.13.4)
+    rspec-support (3.13.5)
     sidekiq (7.3.9)
       base64
       connection_pool (>= 2.3.0)
@@ -245,7 +248,8 @@ GEM
     tailwindcss-rails (4.3.0)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
-    tailwindcss-ruby (4.1.11-x64-mingw-ucrt)
+    tailwindcss-ruby (4.1.12-x64-mingw-ucrt)
+    tailwindcss-ruby (4.1.12-x86_64-linux-gnu)
     thor (1.4.0)
     timeout (0.4.3)
     turbo-rails (2.0.12)
@@ -270,9 +274,11 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
+  concurrent-ruby (< 1.3.5)
   debug
   devise
   factory_bot_rails

@@ -1,10 +1,11 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 127.0.0.1      # leave as-is
-  username: postgres     # or another role you created
-  password: "#subhankar123"   # quotes are important!
   pool: 5
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: '#subhankar123'
+  port: <%= ENV['DB_PORT'] %>
 
 development:
   <<: *default
@@ -16,4 +17,4 @@ test:
 
 production:
   <<: *default
-  database: blog_project_production
+  url: <%= ENV['DATABASE_URL'] %>
