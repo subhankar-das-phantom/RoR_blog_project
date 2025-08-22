@@ -164,4 +164,4 @@ Planned Features
 📄 License
 This project is open source and available under the MIT License.
 
-Built with ❤️ using Ruby on Rails, PostgreSQL, and modern web technologies.
+Built with using Ruby on Rails, PostgreSQL, and modern web technologies.
